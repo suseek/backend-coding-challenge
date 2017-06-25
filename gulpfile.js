@@ -114,8 +114,12 @@ gulp.task("iconfont", function(){
 // Compile CSS
 gulp.task("css", function(done) {
 	// List available theme files
-	var themePaths = settings.buildPathArray(settings.paths.build.source, settings.lists.css.build);
+	var themePaths = settings.buildPathArray(settings.paths.build.source, settings.lists.less.build);
 	var streams = [];
+
+	streams.push(gulp.src(settings.buildPathArray(settings.paths.build.source, settings.lists.css.master), 
+						{ base: settings.paths.build.source })
+	.pipe(gulp.dest(settings.paths.build.target)));
 
 	themePaths.forEach((matchPath, index) => {
 		var themeFiles = glob.sync(matchPath);
@@ -124,7 +128,7 @@ gulp.task("css", function(done) {
 			var basename = path.basename(theme, ".less");
 
 			// Process each theme file
-			streams.push(gulp.src(settings.buildPathArray(settings.paths.build.source, settings.lists.css.master), { base: settings.paths.build.source })
+			streams.push(gulp.src(settings.buildPathArray(settings.paths.build.source, settings.lists.less.master), { base: settings.paths.build.source })
 				.pipe(replace(/{{theme-name}}/ig, "themes/" + basename))
 				.pipe(replace(/{{iconfont-path}}/ig, ""))
 				.pipe(sourcemaps.init({ loadMaps: true, debug: true }))
@@ -275,7 +279,7 @@ gulp.task("watch", function(done) {
 	watching = true;
 	gulp.start("dev");
 
-	watch(settings.buildPathArray(settings.paths.static.source, settings.lists.css.watch), function(file) {
+	watch(settings.buildPathArray(settings.paths.static.source, settings.lists.less.watch), function(file) {
 		var basename = path.basename(file.path);
 		var extension = path.extname(file.path);
 		var destination = path.normalize(settings.paths.build.source + path.relative(settings.paths.static.source, file.path));

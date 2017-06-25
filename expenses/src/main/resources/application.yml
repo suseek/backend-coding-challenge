@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: dev
+
+swagger:
+  info:
+    title: Engagetech Expenses REST API
+    description: Engagetech Expenses backend challenge!
+    version: 1
+    contactName: Marcin Szyszko
+    url: https://github.com/suseek/backend-coding-challenge
+    e-mail: marcinszyszko@gmail.com
+
+server:
+  contextPath: /expenses
+
+rates:
+  vat:
+    UK: 20
+
+fixer:
+  ribbon:
+    listOfServers: api.fixer.io
