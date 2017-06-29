@@ -27,8 +27,13 @@ var paths = {
 // List of JS files used and to be watched in various bundles
 var lists = {
 	css: {
+		master: [
+			"css/*.css",
+		]
+	},
+	less: {
 		build: [
-			"less/themes/*.less"
+			"less/themes/*.less",
 		],
 		master: [
 			"less/css.less"

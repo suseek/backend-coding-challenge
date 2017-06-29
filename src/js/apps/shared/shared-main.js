@@ -36,6 +36,7 @@ require("./angular.directives.js");
 require("./angular.services.js");
 require("./angular.filters.js");
 require("./angular.animations.js");
+require("./angular-ui-notification.min.js");
 
 require("./partials.js");
 require("./navigation/navigation-controllers.js");

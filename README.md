@@ -112,3 +112,64 @@ Feel free to comment your code, or put explanations in a pull request within the
 
 ##### Why doesn’t the test include X?
 Good question. Feel free to tell us how to make the test better. Or, you know, fork it and improve it!
+
+
+
+--------------
+
+
+Ready application - how to
+--------------
+Right after returning from the beach, Robee & Rinchen find a new mail from backendDeveloper:
+
+>_"Hey there Robee,_
+
+>_Holidays were just perfect, I could not dream of anything more! 
+>I know that you'll find your favourite beach as wonderful as always.
+>Your work on this application helped me a lot with understanding of what we actually want to achieve.
+>I made a few improvements to validation and responsiveness, hope you will like it. 
+>There is always a place for something more, but as we talked earlier - we want to keep this project as simple as possible.
+>The whole process stayed the same - you can go with `gulp dev` for building the frontend application and you'll find more about the backend stuff in the Readme._
+>
+>PS. I placed this app on Heroku for you to play around with it http://engagetech-expenses.herokuapp.com/expenses/
+>
+>_I am hoping to hear from you soon!_
+>
+> _backendDeveloper_
+>"
+
+Backend configuration
+----------
+**Description:**
+
+- Language: `JVM` - Java and Groovy (for testing) 
+- Framework: `Spring Boot` framework with `Spring Cloud Feign Client` for external API calls
+- DB: `Postgresql` with HikariCP, `Flyway` for DB migrations (triggered on run)
+- Testing: `Spock`
+- Other libraries: `Lombok` (for code generation), `Orika` (for easy object copying), `Swagger` for API documentation
+
+
+**Building and running the application:**
+1. For having the frontend built, please firstly run `gulp dev` in the main directory. 
+That will do it's magic and place the files in the backend `resources/static`.
+2. Backend service is placed in the `expenses` directory
+3. You would need Postgresql DB (default name - postgres) with credentials `engagetech/engagetech`. 
+    App will create schemas for the dev and integration-tests.  
+4. Quickest way to having it up and running would be to use Maven, so
+    `mvn clean package` will give you a jar file in `/target` directory. 
+    Then you can just `java -jar target/expenses-0.0.1-SNAPSHOT.jar`
+5. You will receive an information about how to use it right after the startup, e.g.
+
+---
+ 	Local: 		http://127.0.0.1:8080/expenses
+ 	External: 	http://192.168.4.138:8080/expenses
+ 	Swagger: 	http://127.0.0.1:8080/expenses/swagger-ui.html
+---
+
+**Good to know:**
+- you can use any currency there is (ISO 4217) for adding new expenses.
+- You can see it live on Heroku http://engagetech-expenses.herokuapp.com/expenses/. Bear in mind that the first run (after the longer period) takes a bit longer.
+- Swagger can be accessed here http://engagetech-expenses.herokuapp.com/expenses/swagger-ui.html
+- There are two additional endpoints for service checking:
+    - health: http://engagetech-expenses.herokuapp.com/expenses/health
+    - metrics: http://engagetech-expenses.herokuapp.com/expenses/metrics
