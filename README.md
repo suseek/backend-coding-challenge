@@ -160,12 +160,13 @@ That will do it's magic and place the files in the backend `resources/static`.
     Then you can just `java -jar target/expenses-0.0.1-SNAPSHOT.jar`
 5. You will receive an information about how to use it right after the startup, e.g.
 
-
+---
  	Local: 		http://127.0.0.1:8080/expenses
  	External: 	http://192.168.4.138:8080/expenses
  	Swagger: 	http://127.0.0.1:8080/expenses/swagger-ui.html
-
+---
 
 **Good to know:**
 - you can use any currency there is (ISO 4217) for adding new expenses.
 - You can see it live on Heroku http://engagetech-expenses.herokuapp.com/expenses/. Bear in mind that the first run (after the longer period) takes a bit longer.
+- Swagger can be accessed here http://engagetech-expenses.herokuapp.com/expenses/swagger-ui.html
