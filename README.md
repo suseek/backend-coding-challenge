@@ -170,3 +170,6 @@ That will do it's magic and place the files in the backend `resources/static`.
 - you can use any currency there is (ISO 4217) for adding new expenses.
 - You can see it live on Heroku http://engagetech-expenses.herokuapp.com/expenses/. Bear in mind that the first run (after the longer period) takes a bit longer.
 - Swagger can be accessed here http://engagetech-expenses.herokuapp.com/expenses/swagger-ui.html
+- There are two additional endpoints for service checking:
+    - health: http://engagetech-expenses.herokuapp.com/expenses/health
+    - metrics: http://engagetech-expenses.herokuapp.com/expenses/metrics
